@@ -1,0 +1,48 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: awx-web
+  labels:
+    app: awx
+    role: web
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: awx
+        role: web
+    spec:
+      containers:
+      - name: awx-web
+        image: geerlingguy/awx_web:latest
+        ports:
+        - name: http
+          containerPort: 8052
+        env:
+        - name: DATABASE_HOST
+          value: awx-db
+        - name: DATABASE_NAME
+          value: awx
+        - name: DATABASE_PASSWORD
+          value: awxpass
+        - name: DATABASE_PORT
+          value: "5432"
+        - name: DATABASE_USER
+          value: awx
+        - name: MEMCACHED_HOST
+          value: awx-cache
+        - name: MEMCACHED_PORT
+          value: "11211"
+        - name: RABBITMQ_HOST
+          value: awx-queue
+        - name: RABBITMQ_PASSWORD
+          value: guest
+        - name: RABBITMQ_PORT
+          value: "5672"
+        - name: RABBITMQ_USER
+          value: guest
+        - name: RABBITMQ_VHOST
+          value: awx
+        - name: SECRET_KEY
+          value: aabbcc

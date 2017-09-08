@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: awx-cache
+  labels:
+    app: awx
+    role: cache
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: awx
+        role: cache
+    spec:
+      containers:
+      - name: memcached
+        image: memcached:alpine
+        ports:
+        - name: memcached
+          containerPort: 11211

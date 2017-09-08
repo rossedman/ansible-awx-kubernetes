@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: awx-db
+  labels:
+    app: awx
+    role: database
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: awx
+        role: database
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:9.6
+        ports:
+        - name: postgres
+          containerPort: 5432
+        env:
+        - name: POSTGRES_DB
+          value: awx
+        - name: POSTGRES_PASSWORD
+          value: awxpass
+        - name: POSTGRES_USER
+          value: awx

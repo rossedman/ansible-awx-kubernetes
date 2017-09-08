@@ -1,0 +1,45 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: awx-task
+  labels:
+    app: awx
+    role: task
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: awx
+        role: task
+    spec:
+      containers:
+      - name: awx-task
+        image: geerlingguy/awx_task:latest
+        env:
+        - name: DATABASE_HOST
+          value: awx-db
+        - name: DATABASE_NAME
+          value: awx
+        - name: DATABASE_PASSWORD
+          value: awxpass
+        - name: DATABASE_PORT
+          value: "5432"
+        - name: DATABASE_USER
+          value: awx
+        - name: MEMCACHED_HOST
+          value: awx-cache
+        - name: MEMCACHED_PORT
+          value: "11211"
+        - name: RABBITMQ_HOST
+          value: awx-queue
+        - name: RABBITMQ_PASSWORD
+          value: guest
+        - name: RABBITMQ_PORT
+          value: "5672"
+        - name: RABBITMQ_USER
+          value: guest
+        - name: RABBITMQ_VHOST
+          value: awx
+        - name: SECRET_KEY
+          value: aabbcc

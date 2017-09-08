@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: awx
+  annotations:
+    kubernetes.io/tls-acme: "true"
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+  - hosts:
+    - tower.ops.goromasamu.net
+    secretName: tower.ops.goromasamu.net
+  rules:
+  - host: tower.ops.goromasamu.net
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: awx-web
+          servicePort: 80
