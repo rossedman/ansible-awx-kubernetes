@@ -25,9 +25,5 @@ Successfully registered instance awx-task-1954310302-q6p24
 Creating instance group tower
 Added instance awx-task-1954310302-q6p24 to tower
 (changed: True)
-2017-09-08 22:09:16,456 WARN For [program:awx-celeryd-beat], redirect_stderr=true but stderr_logfile has also been set to a filename, the filename has been ignored
-2017-09-08 22:09:16,463 INFO RPC interface 'supervisor' initialized
-2017-09-08 22:09:16,463 CRIT Server 'unix_http_server' running without any HTTP authentication checking
-2017-09-08 22:0
 ```
 
