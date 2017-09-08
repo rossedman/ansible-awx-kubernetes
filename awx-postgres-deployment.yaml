@@ -26,3 +26,12 @@ spec:
           value: awxpass
         - name: POSTGRES_USER
           value: awx
+        - name: PGDATA
+          value: "/var/lib/postgresql/data/pgdata"
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: data-volume
+      volumes:
+      - name: data-volume
+        persistentVolumeClaim: 
+          claimName: awx-db
