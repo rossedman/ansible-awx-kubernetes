@@ -2,7 +2,7 @@
 
 This will deploy Ansible's upstream Tower project, AWX, as a distributed deployment in Kubernetes. 
 
-**This is a work in progess. AWX does not support this configuration so there are some errors currently that render this unusable.**
+**This is a work in progess. AWX does not support this configuration so there are some errors currently that render this unusable. Read more [here](https://github.com/ansible/awx/issues/86)**
 
 ## Deploy 
 
