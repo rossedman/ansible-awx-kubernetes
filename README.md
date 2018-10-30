@@ -8,7 +8,7 @@ This will deploy Ansible's upstream Tower project, AWX, as a distributed deploym
 
 ```
 git clone https://github.com/rossedman/ansible-awx-kubernetes.git
-cd ansible-aws-kubernetes
+cd ansible-awx-kubernetes
 kubectl apply -f .
 ```
 
